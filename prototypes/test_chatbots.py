@@ -1,5 +1,5 @@
 import unittest
-from chatbot import Chatbot, Alice, ChatbotFactory
+from chatbots import Chatbot, Alice, ChatbotFactory
 
 class ChatbotTest(unittest.TestCase):
 	def test_smoke_test(self):
