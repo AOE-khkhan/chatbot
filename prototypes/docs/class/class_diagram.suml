@@ -1,0 +1,56 @@
+[note:  Chatbot Class Diagram{bg:cornsilk}]
+
+// Class Declaractions
+
+[Chatbot{bg:burlywood}]
+[Conversation|chatbotFactory: ChatbotFactory;chatbot: Chatbot;user: User]
+[User]
+[Profile]
+[Parser]
+[Interpreter]
+[Action Selector]
+[Response Generator]
+[Interaction Record]
+[Chatbot Manager]
+[Personality Model]
+[Emotion Model]
+[Chatbot Factory]
+[Personality Model Bridge]
+[Emotion Model Bridge]
+[Action Selector Factory]
+[Interpreter Factory]
+
+[Conversation]++-[User]
+[Conversation]++-[Chatbot]
+[Conversation]-[Chatbot Factory]
+
+[Chatbot Manager]-.->[Chatbot]
+
+[Chatbot Factory]++-[Chatbot]
+
+[Chatbot]-[Interpreter Factory]
+[Chatbot]-[Action Selector Factory]
+[Chatbot]++-[Profile Manager]
+[Chatbot]++-[Interaction Record]
+[Chatbot]++-[Interpreter]
+[Chatbot]++-[Action Selector]
+
+[Profile Manager]++-[Emotion Model]
+[Profile Manager]++-[Personality Model]
+[Profile Manager]++-[Profile]
+[Profile Manager]-[Emotion Model Bridge]
+[Profile Manager]-[Personality Model Bridge]
+
+
+[Personality Model Bridge]-[Personality Model]
+
+[Emotion Model Bridge]-[Emotion Model]
+
+[Action Selector Factory]-[Action Selector]
+
+[Action Selector]<>-[Response Generator]
+
+[Interpreter Factory]-[Interpreter]
+
+[Interpreter]-.->[Parser]
+

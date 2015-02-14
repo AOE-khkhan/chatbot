@@ -1,0 +1,90 @@
+Documentation 
+
+Classes List
+
+	Conversation 
+	Chatbot
+	User
+	Profile
+	PersonalityModel
+	EmotionModel
+	User
+	Parser
+	Interpreter
+	ActionSelection
+	ResponseGenerator
+	ConversationContext
+	ChatbotManager
+
+
+Parser:
+
+	Returns a parsed string.
+
+Interpreter:
+	
+	Object that interprets inputs and updates the state of its arguments
+
+
+ActionSelectionManager Class:
+
+	Wrapper for Response Generator 
+
+	But also a manager for actions accomplished including logging the action history.
+
+ResponseGenerator
+	
+	Object that generates text based on the information
+
+ConversationContext
+	
+	Information that acts as input to the ActionSelector
+
+	Named entities
+	Topics of conversation
+	User information
+
+
+PersonalityModel
+
+	A dimensional structure to model human emotion.
+	The interface allows for operations on the axes that reprsent human emotion.
+
+Profile
+	"""
+		Digital representation of an individual
+
+		Emotion model is mutable whereas the personality model and the profile attributes aren't
+	""""
+
+	Age
+	gender
+
+	** future
+		race
+		religion
+		family
+		political views
+		property
+		hobbies
+		interests
+
+** Sources:
+	Google Search: Basic Personal Information
+	Popular Demographics 
+	Socialogical cateogrization
+	Forms of Discrimination 
+
+
+Chatbot
+
+	Personality Model
+	Profile
+	Initial Emotional model
+	Role
+
+
+Resources:
+
+Dialogics - talkworks.wikidot.com
+ 
