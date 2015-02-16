@@ -11,7 +11,7 @@ Classes List
 	User
 	Parser
 	Interpreter
-	ActionSelection
+	ActionSelector
 	ResponseGenerator
 	ConversationContext
 	ChatbotManager
@@ -26,7 +26,7 @@ Interpreter:
 	Object that interprets inputs and updates the state of its arguments
 
 
-ActionSelectionManager Class:
+ActionSelector Class:
 
 	Wrapper for Response Generator 
 

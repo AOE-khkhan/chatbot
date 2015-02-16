@@ -1,20 +1,24 @@
 import unittest
-from chatbots import Chatbot, Alice, ChatbotFactory
+from chatbot.chatbots import Chatbot, Alice, ChatbotFactory
+
 
 class ChatbotTest(unittest.TestCase):
-	def test_smoke_test(self):
-		chatbot = Chatbot()
+    def test_smoke_test(self):
+
+        chatbot = Chatbot()
 
 class AliceTest(unittest.TestCase):
-	def test_smoke_test(self):
-		alice = Alice()
+    def test_smoke_test(self):
+        alice = Alice()
 
-		bot_factory = ChatbotFactory()
-		alice_copy = bot_factory.create_chatbot(name='alice')
+        bot_factory = ChatbotFactory()
+        alice_copy = bot_factory.create_chatbot(name='alice')
 
-		self.assertTrue(isinstance(alice_copy, Alice))
+        self.assertTrue(isinstance(alice_copy, Alice))
 
 
 if __name__ == '__main__':
-	unittest.main()
+    print __name__
+    print __package__
+    unittest.main()
 

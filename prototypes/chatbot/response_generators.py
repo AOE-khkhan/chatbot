@@ -7,10 +7,9 @@ class ResponseGenerator(object):
 
 	"""
 
-	_last_message = None
-
-	def __init__(self, meta):
-		pass
+	def __init__(self, interpreter, profile):
+		self.interpreter = interpreter
+		self.profile = profile
 
 	def generate(self, message=None):
 		output = 'You said: ' + self._last_message

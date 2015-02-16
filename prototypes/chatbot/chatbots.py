@@ -1,12 +1,26 @@
 from collections import namedtuple
 from datetime import datetime
 
+from interpreters import InterpreterFactory
+from response_generators import ResponseGenerator
+from action_selectors import ActionSelectorFactory
+
 class Chatbot(object):
+	""" Agent model that simulates dialog. It is an extension of a dialog 
+	manager with improved functionality such as individualism and sophisticated
+	goal evaluation functions. 
+
+	This is a base class for designing more complicated chatbots, however,
+	it will return a very basic chatbot for test purposes.
+
+	"""
+
 	message_history = []
 	_meta = {}
 
 	def __init__(self):
-		pass
+		actionSelectorFactory = ActionSelectorFactory()
+		interpreterFactory = InterpreterFactory()
 
 	def log_message(self, msg, origin):
 		valid_origins = ['user', 'bot']
@@ -18,9 +32,10 @@ class Chatbot(object):
 		message = (msg, origin, datetime.now())
 		self.message_history.append(message)
 
+
 	def respond(self):
-		"""
-		The bot recieves responds to a message.
+		""" End point for response communication. Allows for post-processing
+		of the response message.
 
 		"""
 		msg = self.create_response()
@@ -37,18 +52,22 @@ class Chatbot(object):
 
 
 class Alice(Chatbot):
+	"""  A basic chatbot
+
+	"""
+
 	def create_response(self):
 		return 'Hello, My name is Alice!'
 
 
 class ChatbotFactory(object):
-	"""
-	Use a name paramater for a specific bot. 
+	""" Used to produce instances of the "Chatbot" class.
 
-	Usage:
-		botFactory = ChatbotFactory()
-		alice = botFactory.create_chatbot(name='alice')
-		default_bot = botFactory.create_chatbot()
+	Examples:
+		>>> botFactory = ChatbotFactory()
+		>>> alice = botFactory.create_chatbot(name='alice')
+		>>> default_bot = botFactory.create_chatbot()
+
 	"""
 
 	chatbot_repo = {'alice': Alice}
@@ -74,7 +93,4 @@ if __name__ == '__main__':
 	print alice.respond()
 
 	print alice.get_message_history()
-
-
-
 
