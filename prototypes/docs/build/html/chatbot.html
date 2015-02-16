@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>chatbot package &mdash; Chatbot Prototype 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Chatbot Prototype 1.1 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Chatbot Prototype 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chatbot-package">
+<h1>chatbot package<a class="headerlink" href="#chatbot-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-chatbot.action_selectors">
+<span id="chatbot-action-selectors-module"></span><h2>chatbot.action_selectors module<a class="headerlink" href="#module-chatbot.action_selectors" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chatbot.action_selectors.ActionSelector">
+<em class="property">class </em><code class="descclassname">chatbot.action_selectors.</code><code class="descname">ActionSelector</code><span class="sig-paren">(</span><em>interaction=None</em>, <em>profile=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/action_selectors.html#ActionSelector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.action_selectors.ActionSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="chatbot.action_selectors.ActionSelector.get_options">
+<code class="descname">get_options</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/action_selectors.html#ActionSelector.get_options"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.action_selectors.ActionSelector.get_options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chatbot.action_selectors.ActionSelector.select_action">
+<code class="descname">select_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/action_selectors.html#ActionSelector.select_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.action_selectors.ActionSelector.select_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chatbot.action_selectors.ActionSelector.select_actions">
+<code class="descname">select_actions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/action_selectors.html#ActionSelector.select_actions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.action_selectors.ActionSelector.select_actions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="chatbot.action_selectors.ActionSelectorFactory">
+<em class="property">class </em><code class="descclassname">chatbot.action_selectors.</code><code class="descname">ActionSelectorFactory</code><a class="reference internal" href="_modules/chatbot/action_selectors.html#ActionSelectorFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.action_selectors.ActionSelectorFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="chatbot.action_selectors.ActionSelectorFactory.create">
+<em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>selector='default'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/action_selectors.html#ActionSelectorFactory.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.action_selectors.ActionSelectorFactory.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="chatbot-actions-module">
+<span id="actions-module-label"></span><h2>chatbot.actions module<a class="headerlink" href="#chatbot-actions-module" title="Permalink to this headline">¶</a></h2>
+<p>hello hwo areyou? <a class="reference internal" href="#actions-module-label"><em>chatbot.actions module</em></a></p>
+</div>
+<div class="section" id="section-to-cross-reference">
+<span id="my-reference-label"></span><h2>Section to cross-reference<a class="headerlink" href="#section-to-cross-reference" title="Permalink to this headline">¶</a></h2>
+<p>This is the text of the section.</p>
+<p>It refers to the section itself, see <a class="reference internal" href="#my-reference-label"><em>Section to cross-reference</em></a>.</p>
+<span class="target" id="module-chatbot.actions"></span><dl class="class">
+<dt id="chatbot.actions.Action">
+<em class="property">class </em><code class="descclassname">chatbot.actions.</code><code class="descname">Action</code><a class="reference internal" href="_modules/chatbot/actions.html#Action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.actions.Action" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="chatbot.actions.Action.act">
+<code class="descname">act</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/actions.html#Action.act"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.actions.Action.act" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chatbot.actions.Action.message">
+<code class="descname">message</code><a class="headerlink" href="#chatbot.actions.Action.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chatbot.chatbot_managers">
+<span id="chatbot-chatbot-managers-module"></span><h2>chatbot.chatbot_managers module<a class="headerlink" href="#module-chatbot.chatbot_managers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chatbot.chatbot_managers.ChatbotManager">
+<em class="property">class </em><code class="descclassname">chatbot.chatbot_managers.</code><code class="descname">ChatbotManager</code><a class="reference internal" href="_modules/chatbot/chatbot_managers.html#ChatbotManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbot_managers.ChatbotManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-chatbot.chatbots">
+<span id="chatbot-chatbots-module"></span><h2>chatbot.chatbots module<a class="headerlink" href="#module-chatbot.chatbots" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chatbot.chatbots.Alice">
+<em class="property">class </em><code class="descclassname">chatbot.chatbots.</code><code class="descname">Alice</code><a class="reference internal" href="_modules/chatbot/chatbots.html#Alice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.Alice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chatbot.chatbots.Chatbot" title="chatbot.chatbots.Chatbot"><code class="xref py py-class docutils literal"><span class="pre">chatbot.chatbots.Chatbot</span></code></a></p>
+<p>A basic chatbot</p>
+<dl class="method">
+<dt id="chatbot.chatbots.Alice.create_response">
+<code class="descname">create_response</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/chatbots.html#Alice.create_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.Alice.create_response" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="chatbot.chatbots.Chatbot">
+<em class="property">class </em><code class="descclassname">chatbot.chatbots.</code><code class="descname">Chatbot</code><a class="reference internal" href="_modules/chatbot/chatbots.html#Chatbot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.Chatbot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Agent model that simulates dialog. It is an extension of a dialog 
+manager with improved functionality such as individualism and sophisticated
+goal evaluation functions.</p>
+<p>This is a base class for designing more complicated chatbots, however,
+it will return a very basic chatbot for test purposes.</p>
+<dl class="method">
+<dt id="chatbot.chatbots.Chatbot.create_response">
+<code class="descname">create_response</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/chatbots.html#Chatbot.create_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.Chatbot.create_response" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chatbot.chatbots.Chatbot.get_message_history">
+<code class="descname">get_message_history</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/chatbots.html#Chatbot.get_message_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.Chatbot.get_message_history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chatbot.chatbots.Chatbot.log_message">
+<code class="descname">log_message</code><span class="sig-paren">(</span><em>msg</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/chatbots.html#Chatbot.log_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.Chatbot.log_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="chatbot.chatbots.Chatbot.message_history">
+<code class="descname">message_history</code><em class="property"> = []</em><a class="headerlink" href="#chatbot.chatbots.Chatbot.message_history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chatbot.chatbots.Chatbot.recieve">
+<code class="descname">recieve</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/chatbots.html#Chatbot.recieve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.Chatbot.recieve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chatbot.chatbots.Chatbot.respond">
+<code class="descname">respond</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/chatbots.html#Chatbot.respond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.Chatbot.respond" title="Permalink to this definition">¶</a></dt>
+<dd><p>End point for response communication. Allows for post-processing
+of the response message.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="chatbot.chatbots.ChatbotFactory">
+<em class="property">class </em><code class="descclassname">chatbot.chatbots.</code><code class="descname">ChatbotFactory</code><a class="reference internal" href="_modules/chatbot/chatbots.html#ChatbotFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.ChatbotFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Used to produce instances of the &#8220;Chatbot&#8221; class.</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">botFactory</span> <span class="o">=</span> <span class="n">ChatbotFactory</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alice</span> <span class="o">=</span> <span class="n">botFactory</span><span class="o">.</span><span class="n">create_chatbot</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;alice&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">default_bot</span> <span class="o">=</span> <span class="n">botFactory</span><span class="o">.</span><span class="n">create_chatbot</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="chatbot.chatbots.ChatbotFactory.chatbot_repo">
+<code class="descname">chatbot_repo</code><em class="property"> = {'alice': &lt;class 'chatbot.chatbots.Alice'&gt;}</em><a class="headerlink" href="#chatbot.chatbots.ChatbotFactory.chatbot_repo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chatbot.chatbots.ChatbotFactory.create_chatbot">
+<code class="descname">create_chatbot</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/chatbots.html#ChatbotFactory.create_chatbot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.chatbots.ChatbotFactory.create_chatbot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chatbot.interaction_record">
+<span id="chatbot-interaction-record-module"></span><h2>chatbot.interaction_record module<a class="headerlink" href="#module-chatbot.interaction_record" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chatbot.interaction_record.InteractionRecord">
+<em class="property">class </em><code class="descclassname">chatbot.interaction_record.</code><code class="descname">InteractionRecord</code><a class="reference internal" href="_modules/chatbot/interaction_record.html#InteractionRecord"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.interaction_record.InteractionRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="chatbot.interaction_record.InteractionRecord.get_last_message">
+<code class="descname">get_last_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/interaction_record.html#InteractionRecord.get_last_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.interaction_record.InteractionRecord.get_last_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chatbot.interpreters">
+<span id="chatbot-interpreters-module"></span><h2>chatbot.interpreters module<a class="headerlink" href="#module-chatbot.interpreters" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chatbot.interpreters.Interpreter">
+<em class="property">class </em><code class="descclassname">chatbot.interpreters.</code><code class="descname">Interpreter</code><a class="reference internal" href="_modules/chatbot/interpreters.html#Interpreter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.interpreters.Interpreter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="chatbot.interpreters.InterpreterFactory">
+<em class="property">class </em><code class="descclassname">chatbot.interpreters.</code><code class="descname">InterpreterFactory</code><a class="reference internal" href="_modules/chatbot/interpreters.html#InterpreterFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.interpreters.InterpreterFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-chatbot.parsers">
+<span id="chatbot-parsers-module"></span><h2>chatbot.parsers module<a class="headerlink" href="#module-chatbot.parsers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chatbot.parsers.Parser">
+<em class="property">class </em><code class="descclassname">chatbot.parsers.</code><code class="descname">Parser</code><a class="reference internal" href="_modules/chatbot/parsers.html#Parser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.parsers.Parser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-chatbot.response_generators">
+<span id="chatbot-response-generators-module"></span><h2>chatbot.response_generators module<a class="headerlink" href="#module-chatbot.response_generators" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chatbot.response_generators.ResponseGenerator">
+<em class="property">class </em><code class="descclassname">chatbot.response_generators.</code><code class="descname">ResponseGenerator</code><span class="sig-paren">(</span><em>interpreter</em>, <em>profile</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/response_generators.html#ResponseGenerator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.response_generators.ResponseGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Takes an interpreted message and creates a response</p>
+<p>Accepts chatbot, interpreter object</p>
+<dl class="method">
+<dt id="chatbot.response_generators.ResponseGenerator.generate">
+<code class="descname">generate</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/chatbot/response_generators.html#ResponseGenerator.generate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.response_generators.ResponseGenerator.generate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="chatbot.response_generators.ResponseGeneratorFactory">
+<em class="property">class </em><code class="descclassname">chatbot.response_generators.</code><code class="descname">ResponseGeneratorFactory</code><a class="reference internal" href="_modules/chatbot/response_generators.html#ResponseGeneratorFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chatbot.response_generators.ResponseGeneratorFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-chatbot">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-chatbot" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">chatbot package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-chatbot.action_selectors">chatbot.action_selectors module</a></li>
+<li><a class="reference internal" href="#chatbot-actions-module">chatbot.actions module</a></li>
+<li><a class="reference internal" href="#section-to-cross-reference">Section to cross-reference</a></li>
+<li><a class="reference internal" href="#module-chatbot.chatbot_managers">chatbot.chatbot_managers module</a></li>
+<li><a class="reference internal" href="#module-chatbot.chatbots">chatbot.chatbots module</a></li>
+<li><a class="reference internal" href="#module-chatbot.interaction_record">chatbot.interaction_record module</a></li>
+<li><a class="reference internal" href="#module-chatbot.interpreters">chatbot.interpreters module</a></li>
+<li><a class="reference internal" href="#module-chatbot.parsers">chatbot.parsers module</a></li>
+<li><a class="reference internal" href="#module-chatbot.response_generators">chatbot.response_generators module</a></li>
+<li><a class="reference internal" href="#module-chatbot">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/chatbot.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Chatbot Prototype 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Preom M. Rahman.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

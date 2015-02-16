@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>chatbot.chatbots &mdash; Chatbot Prototype 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Chatbot Prototype 1.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Chatbot Prototype 1.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for chatbot.chatbots</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">interpreters</span> <span class="kn">import</span> <span class="n">InterpreterFactory</span>
+<span class="kn">from</span> <span class="nn">response_generators</span> <span class="kn">import</span> <span class="n">ResponseGenerator</span>
+<span class="kn">from</span> <span class="nn">action_selectors</span> <span class="kn">import</span> <span class="n">ActionSelectorFactory</span>
+
+<div class="viewcode-block" id="Chatbot"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.Chatbot">[docs]</a><span class="k">class</span> <span class="nc">Chatbot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot; Agent model that simulates dialog. It is an extension of a dialog </span>
+<span class="sd">	manager with improved functionality such as individualism and sophisticated</span>
+<span class="sd">	goal evaluation functions. </span>
+
+<span class="sd">	This is a base class for designing more complicated chatbots, however,</span>
+<span class="sd">	it will return a very basic chatbot for test purposes.</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">message_history</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">_meta</span> <span class="o">=</span> <span class="p">{}</span>
+
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="n">actionSelectorFactory</span> <span class="o">=</span> <span class="n">ActionSelectorFactory</span><span class="p">()</span>
+		<span class="n">interpreterFactory</span> <span class="o">=</span> <span class="n">InterpreterFactory</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Chatbot.log_message"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.Chatbot.log_message">[docs]</a>	<span class="k">def</span> <span class="nf">log_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">origin</span><span class="p">):</span>
+		<span class="n">valid_origins</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;bot&#39;</span><span class="p">]</span>
+		<span class="n">message_status</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;status&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;msg&#39;</span><span class="p">,</span> <span class="s">&#39;origin&#39;</span><span class="p">,</span> <span class="s">&#39;timestamp&#39;</span><span class="p">])</span>
+
+		<span class="k">if</span> <span class="n">origin</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_origins</span><span class="p">:</span>
+			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;invalid origin&quot;</span><span class="p">)</span>
+
+		<span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">message_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Chatbot.respond"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.Chatbot.respond">[docs]</a>	<span class="k">def</span> <span class="nf">respond</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="sd">&quot;&quot;&quot; End point for response communication. Allows for post-processing</span>
+<span class="sd">		of the response message.</span>
+
+<span class="sd">		&quot;&quot;&quot;</span>
+		<span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_response</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s">&#39;bot&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Chatbot.create_response"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.Chatbot.create_response">[docs]</a>	<span class="k">def</span> <span class="nf">create_response</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="s">&#39;I am a generic bot&#39;</span>
+</div>
+<div class="viewcode-block" id="Chatbot.recieve"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.Chatbot.recieve">[docs]</a>	<span class="k">def</span> <span class="nf">recieve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s">&#39;user&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Chatbot.get_message_history"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.Chatbot.get_message_history">[docs]</a>	<span class="k">def</span> <span class="nf">get_message_history</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">message_history</span>
+
+</div></div>
+<div class="viewcode-block" id="Alice"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.Alice">[docs]</a><span class="k">class</span> <span class="nc">Alice</span><span class="p">(</span><span class="n">Chatbot</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;  A basic chatbot</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Alice.create_response"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.Alice.create_response">[docs]</a>	<span class="k">def</span> <span class="nf">create_response</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="s">&#39;Hello, My name is Alice!&#39;</span>
+
+</div></div>
+<div class="viewcode-block" id="ChatbotFactory"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.ChatbotFactory">[docs]</a><span class="k">class</span> <span class="nc">ChatbotFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot; Used to produce instances of the &quot;Chatbot&quot; class.</span>
+
+<span class="sd">	Examples:</span>
+<span class="sd">		&gt;&gt;&gt; botFactory = ChatbotFactory()</span>
+<span class="sd">		&gt;&gt;&gt; alice = botFactory.create_chatbot(name=&#39;alice&#39;)</span>
+<span class="sd">		&gt;&gt;&gt; default_bot = botFactory.create_chatbot()</span>
+
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="n">chatbot_repo</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;alice&#39;</span><span class="p">:</span> <span class="n">Alice</span><span class="p">}</span>
+
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">pass</span>
+
+<div class="viewcode-block" id="ChatbotFactory.create_chatbot"><a class="viewcode-back" href="../../chatbot.html#chatbot.chatbots.ChatbotFactory.create_chatbot">[docs]</a>	<span class="k">def</span> <span class="nf">create_chatbot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+		<span class="k">if</span> <span class="s">&#39;name&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+			<span class="n">requested_chatbot</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+			<span class="k">if</span> <span class="n">requested_chatbot</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">chatbot_repo</span><span class="p">:</span>
+				<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">chatbot_repo</span><span class="p">[</span><span class="n">requested_chatbot</span><span class="p">]()</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">Chatbot</span><span class="p">()</span>
+
+</div></div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+	<span class="n">botFactory</span> <span class="o">=</span> <span class="n">ChatbotFactory</span><span class="p">()</span>	
+
+	<span class="n">alice</span> <span class="o">=</span> <span class="n">botFactory</span><span class="o">.</span><span class="n">create_chatbot</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;alice&#39;</span><span class="p">)</span>
+
+	<span class="n">alice</span><span class="o">.</span><span class="n">recieve</span><span class="p">(</span><span class="s">&#39;Hello, Alice!&#39;</span><span class="p">)</span>
+	<span class="k">print</span> <span class="n">alice</span><span class="o">.</span><span class="n">respond</span><span class="p">()</span>
+
+	<span class="k">print</span> <span class="n">alice</span><span class="o">.</span><span class="n">get_message_history</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Chatbot Prototype 1.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Preom M. Rahman.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
