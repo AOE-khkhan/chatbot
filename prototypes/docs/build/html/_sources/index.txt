@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-
+:ref:`class-diagram`
 
 Indices and tables
 ==================

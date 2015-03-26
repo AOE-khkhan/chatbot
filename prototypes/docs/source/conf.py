@@ -37,6 +37,7 @@ extensions = [
     'sphinx.ext.pngmath',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
+    'sphinx_scruffy',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
