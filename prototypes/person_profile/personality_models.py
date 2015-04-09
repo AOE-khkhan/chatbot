@@ -13,12 +13,12 @@ class DimensionalModel(object):
         self.factor_validators = dict()
 
     def _init_factors(self):
-        self.factors = dict(zip(self.valid_factors, [0] * len(self.valid_factors)))
+        self.factors = dict(zip(self.valid_factors, [0.5] * len(self.valid_factors)))
 
     def _pre_check(func):
         def checked_func(self, factor, *args, **kwargs):
             if factor not in self.factors:
-                raise ValueError("Incorrect factor in model: factor not found") 
+                raise ValueError("Incorrect factor in model: " + factor)
 
             return func(self, factor, *args, **kwargs)
 
@@ -29,13 +29,17 @@ class DimensionalModel(object):
         return self.factors[factor]
 
     @_pre_check
-    def set_factor(self, factor, value):
-        if self._factor_value_check(factor, value):
-            self.factors[factor] = value
+    def set_factor(self, factor, value, increment=False):
+        if increment:
+            self.factors[factor] += value
         else:
-            raise ValueError("Incorrect value for this model factor; validation failed")
+            self.factors[factor] = value
 
-    def _factor_value_check(self, factor, value):
+        if not self._is_valid_factor(factor, self.factors[factor]):
+            raise ValueError("Incorrect value for this model factor; validation failed", self.factors[factor])
+
+    def _is_valid_factor(self, factor, value):
+        """ Is correct value """
 
         def default_validator(value):
             if value > 1 or value < 0:
@@ -96,6 +100,11 @@ class PersonalityModelTest(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             self.pm.set_factor('sadness', 1)
+
+    def test_valid_factor_value(self):
+        self.pm.set_factor('happiness', 0.5)
+        self.pm.set_factor('happiness', -0.1, increment=True)
+        self.pm.set_factor('happiness', 0.1, increment=True)
 
 
 class BigFiveModelTest(unittest.TestCase):
