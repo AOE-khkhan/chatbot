@@ -3,6 +3,11 @@ class KnowledgeBase(object):
         return KbRoot.get_children()
 
     def match(self, pattern):
+        """ 
+        Returns: 
+            list: A of classes that match the given pattern.
+
+        """
 
         def normalize(name):
             name = name.lower()
