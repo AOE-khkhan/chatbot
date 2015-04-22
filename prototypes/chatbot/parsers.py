@@ -1,7 +1,8 @@
 
 class Parser(object):
-	pass
-	
+
+    def parse(self, text):
+        return text.split()
 
 
 
