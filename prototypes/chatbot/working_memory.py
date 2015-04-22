@@ -3,10 +3,12 @@ import unittest
 
 class Percept(object):
     def __init__(self):
-        self.subjects = None
-        self.verbs = None
-        self.nouns = None
-        self.named_entities = None
+        self.subjects = []
+        self.verbs = []
+        self.nouns = []
+        self.adjectives = []
+        self.adverbs = []
+        self.named_entities = []
 
 class WorkingMemory(object):
     def __init__(self):

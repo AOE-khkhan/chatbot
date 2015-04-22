@@ -1,29 +1,34 @@
 #! /usr/bin/python
 
 from response_generators import ResponseGenerator
+from actions import *
 
 class ActionSelector(object):
 	""" 
 	"""
 	
-	def __init__(self, interaction=None, profile=None):
+	def __init__(self, w_m, profile=None):
 		""" Chooses one or more actions based on inputs.
 
 		Args:
-			interaction: instance of InteractionRecord
+			w_m: instance of WorkingMemory
 			profile: instance of ProfileManager
 		"""
 
-		self._interaction = interaction
+		self._w_m = w_m
 		self._profile = profile
 		self._actions = [] 
-		self.response_gen = ResponseGenerator()
 
 	def get_options(self):
 		pass
 
 	def select_action(self):
-		output = response_gen.generate(self._interaction, self._profile)
+		""" Selects an action, executes it, and returns its message
+		"""
+
+		action = SayHello()
+		action.act()
+		output = action.message
 
 		return output
 
@@ -38,6 +43,6 @@ class ActionSelectorFactory(object):
 
 	@staticmethod
 	def create(selector="default"):
-		return ActionSelector();
+		return ActionSelector;
 
 

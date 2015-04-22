@@ -1,3 +1,6 @@
+def empty_func():
+	pass
+
 class Action:
 	def __init__(self):
 		self._message = ''
@@ -9,6 +12,9 @@ class Action:
 		def print_action(word='hello world!'):
 			print word
 
+		def empty_action():
+			pass
+
 		self._action = print_action
 
 	def act(self):
@@ -16,4 +22,17 @@ class Action:
 
 	@property		
 	def message(self):
-		return _message
+		return self._message
+
+class Ask(Action):
+	def __init__(self):
+		pass
+
+class FailureToUnderstand(Action):
+	def __init__(self):
+		self._message = "I don't understand your input"
+
+class SayHello(Action):
+	def __init__(self, name='user'):
+		self._message = "Hello, user"
+		self._action = empty_func

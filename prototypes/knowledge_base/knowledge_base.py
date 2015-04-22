@@ -31,8 +31,9 @@ class KbRoot(object):
         self.bull = 'hello'
         self.alt_spelling = []
 
-    def get_word_class(self):
-        return getattr(self.__class__, '_word_class')
+    @classmethod
+    def get_word_class(cls):
+        return getattr(cls, '_word_class')
 
     def get_name(self):
         return self.__class__.__name__
@@ -85,12 +86,12 @@ class Verb(KbRoot):
     def __init__(self):
         super(Verb, self).__init__()
 
-class Play(Verb)
+class Play(Verb):
     _word_class = 'verb'
     def __init__(self):
         super(Play, self)
 
-class Ask(Verb)
+class Ask(Verb):
     _word_class = 'verb'
     def __init__(self):
         super(Ask, self)
@@ -104,9 +105,9 @@ if __name__ == "__main__":
     goat = Goat()
     animal = Animal()
 
-    dir(dog)
-    dir(goat)
-    dir(animal)
+    print 'dog', dir(dog)
+    print 'goat', dir(goat)
+    print 'animal', dir(animal)
 
     print kb.match('dog')
     d = kb.match('dog')[0]()
