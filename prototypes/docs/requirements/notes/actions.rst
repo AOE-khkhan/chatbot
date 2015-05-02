@@ -48,6 +48,9 @@ action being executed.
 Action Selector
 =================
 
+The reasoning system that uses the information processed by the 'interpreter' 
+and stored in the 'working memory' modules to select the appropriate action(s).
+
 Design & Implementation 
 ========================
 
@@ -57,3 +60,44 @@ keywords and then filter them based on their validator function.
 
 If an action selector selects multiple actions, it must be able to combine
 the generated response by each action in a comprehensible manner.
+
+
+Reasearch
+=========
+
+Situation Calculas and Event Calculas are both logic formalisms that are used
+to model dynamic situations. They can be used to formally represent interactions
+between an AI and its environment. Because of its purity, its applications may
+be limited in more dynamic environments. There is also a wide gap between the 
+theory and actual implmenetation. There is a big difference between the logical
+paradigm that such formalisms lend themselves to and the imperative paradigm
+actually being used for this project.
+
+Examples of Actions
+====================
+Input: What is the time?
+Desired action: Return the time
+
+Input: What is the color of the sky?
+Desired action: Return blue.
+
+Input: Tell me a lie.
+Desired action: Circle is a square
+
+Input: Play this song.
+Desired action: Open the specified song if in database, othwerise, notify 
+user song is not available.
+
+Input: Send me to Reddit.
+Desired action: Forward the user to www.reddit.com
+
+Input: Thank you.
+Desired action: Understand what user is thanking for, and outputting 
+"you're welcome".
+
+Thoughts:
+  - Procedurally generate the action definitions.
+  - System for confirming that the action is correct.
+  - Part of a knowledge base should be common nouns and their ascii pictures.
+
+
